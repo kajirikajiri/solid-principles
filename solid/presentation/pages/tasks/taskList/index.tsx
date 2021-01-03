@@ -6,9 +6,9 @@ export const TaskList:FC<{tasks: TaskModel[]}> = ({tasks}) => {
   return (
     <>
       {
-        tasks.map((task) => {
+        tasks.map((task) => 
           <Task date={task.date} id={task.id} text={task.text} />
-        })
+        )
       }
     </>
   )

@@ -7,6 +7,18 @@ import { TaskList } from './taskList'
 
 export const Tasks=()=> {
   const [tasks, setTasks] = useState<TaskModel[]>([])
+  const [text, setText] = useState<TaskModel['text']>('')
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {value} = event.target
+    setText(value)
+  }
+
+  const handleClickSave = () => {
+    const copy = [...tasks]
+    const newTasks = [{text, id: '0', date: '1'}, ...copy]
+    setTasks(newTasks)
+  }
 
   return (
     <div className={styles.container}>
@@ -19,7 +31,10 @@ export const Tasks=()=> {
         <h1 className={styles.title}>
           Todos
         </h1>
-        <button className="border-black border rounded py-1 px-3">add task</button>
+        <div>
+          <input className="border-black border rounded mt-2" value={text} onChange={handleChange}/>
+          <button className="border-black border rounded px-3 font-bold ml-3" onClick={handleClickSave}>save task</button>
+        </div>
         {
           tasks.length > 0 ? <TaskList tasks={tasks}/> : <p>...loading</p>
         }
