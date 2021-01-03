@@ -5,6 +5,7 @@ import { Footer } from 'presentation/components'
 import { TaskModel } from 'domain/models'
 import { TaskList } from './taskList'
 import { v4 as uuid } from 'uuid'
+import {format} from 'date-fns'
 
 export const Tasks = () => {
   const [tasks, setTasks] = useState<TaskModel[]>([])
@@ -17,7 +18,9 @@ export const Tasks = () => {
 
   const handleClickSave = () => {
     const copy = [...tasks]
-    const newTasks = [{ text, id: uuid(), date: '1' }, ...copy]
+    const id = uuid()
+    const date = format(new Date(), 'yyyy/MM/dd HH:mm:ss')
+    const newTasks = [{ text, id, date }, ...copy]
     setTasks(newTasks)
   }
 
