@@ -1,11 +1,10 @@
-import Head from 'next/head'
 import styles from 'styles/Home.module.css'
 import React, { useState } from 'react'
 import { Footer } from 'presentation/components'
 import { TaskModel } from 'domain/models'
 import { TaskList } from './taskList'
-import { v4 as uuid } from 'uuid'
-import {format} from 'date-fns'
+import { GenelateNewTask } from 'solid/data/usecases/newTask'
+import { HeadTag } from './head'
 
 export const Tasks = () => {
   const [tasks, setTasks] = useState<TaskModel[]>([])
@@ -18,18 +17,14 @@ export const Tasks = () => {
 
   const handleClickSave = () => {
     const copy = [...tasks]
-    const id = uuid()
-    const date = format(new Date(), 'yyyy/MM/dd HH:mm:ss')
-    const newTasks = [{ text, id, date }, ...copy]
+    const newTask = new GenelateNewTask(text).exec()
+    const newTasks = [newTask, ...copy]
     setTasks(newTasks)
   }
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <HeadTag/>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
