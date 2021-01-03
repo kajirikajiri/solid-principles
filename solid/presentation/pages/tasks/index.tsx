@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Footer } from 'presentation/components'
 import { TaskModel } from 'domain/models'
 import { TaskList } from './taskList'
+import {v4 as uuid} from 'uuid'
 
 export const Tasks=()=> {
   const [tasks, setTasks] = useState<TaskModel[]>([])
@@ -16,7 +17,7 @@ export const Tasks=()=> {
 
   const handleClickSave = () => {
     const copy = [...tasks]
-    const newTasks = [{text, id: '0', date: '1'}, ...copy]
+    const newTasks = [{text, id: uuid(), date: '1'}, ...copy]
     setTasks(newTasks)
   }
 
