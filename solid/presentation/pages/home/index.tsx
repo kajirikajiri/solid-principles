@@ -21,6 +21,16 @@ export const Home=()=> {
         </p>
 
         <div className={styles.grid}>
+          <a
+            href="/todos"
+            className={styles.card}
+          >
+            <h3>ToDos &rarr;</h3>
+            <p>
+              ToDos page
+            </p>
+          </a>
+
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
