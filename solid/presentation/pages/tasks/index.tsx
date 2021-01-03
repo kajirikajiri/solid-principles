@@ -19,6 +19,7 @@ export const Tasks=()=> {
         <h1 className={styles.title}>
           Todos
         </h1>
+        <button className="border-black border rounded py-1 px-3">add task</button>
         {
           tasks.length > 0 ? <TaskList tasks={tasks}/> : <p>...loading</p>
         }
