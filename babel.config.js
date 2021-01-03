@@ -7,7 +7,9 @@ module.exports = {
       "module-resolver",
       {
         "alias": {
-          "domain": "./solid/domain/"
+          "domain": "./solid/domain/",
+          "presentation": "./solid/presentation/",
+          "styles": "./styles/"
         },
         "extensions": [".ts", ".tsx"]
       }
