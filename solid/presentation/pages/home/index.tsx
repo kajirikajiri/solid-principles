@@ -26,9 +26,9 @@ export const Home=()=> {
             href="/todos"
             className={styles.card}
           >
-            <h3>ToDos &rarr;</h3>
+            <h3>Tasks &rarr;</h3>
             <p>
-              ToDos page
+              Tasks page
             </p>
           </a>
 
